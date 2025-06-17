@@ -15,7 +15,7 @@ public class UntrustedDeserialization {
     public List ObjectMapperNoncompliant(final File input) throws Exception {
         final ObjectMapper mapper = new ObjectMapper();
         // Noncompliant: enabling default typing can introduce a remote code execution vulnerability.
-        mapper.enableDefaultTyping();
+          mapper.enableDefaultTyping();
         return mapper.readValue(input, List.class);
     }
     // {/fact}
