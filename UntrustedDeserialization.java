@@ -20,6 +20,14 @@ public class UntrustedDeserialization {
     }
     // {/fact}
 
+        // {fact rule=untrusted-deserialization@v1.0 defects=1}
+    public List ObjectMapperNoncompliant2 (final File input) throws Exception {
+        final ObjectMapper mapper = new ObjectMapper();
+        // Noncompliant: enabling default typing can introduce a remote code execution vulnerability.
+        mapper.enableDefaultTyping();
+        return mapper.readValue(input, List.class);
+    }
+
     // {fact rule=untrusted-deserialization@v1.0 defects=0}
     public List ObjectMapperCompliant(final File input) throws Exception {
         final ObjectMapper mapper = new ObjectMapper();
