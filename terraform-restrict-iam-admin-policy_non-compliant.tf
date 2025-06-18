@@ -15,7 +15,7 @@ resource "aws_iam_policy" "ec2_pricing" {
         Action = [
           "*"
         ],
-        Resource = "*"
+              Resource = "*"
       }
     ]
   })
